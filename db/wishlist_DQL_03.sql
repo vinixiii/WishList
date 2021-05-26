@@ -6,16 +6,20 @@ GO
 SELECT * FROM Desejos;
 GO
 
-SELECT IdDescricao,
+SELECT IdDesejo,
 	   Descricao,
-	   Email,
-	   FORMAT(DataCriacao, 'd', 'pt-bt') [Data de Criação]
+	   FORMAT(DataCriacao, 'd', 'pt-bt') [Data de Criação],
+	   Email	   
 FROM Desejos D
 INNER JOIN Usuarios U
 ON U.IdUsuario = D.IdUsuario;
 GO
 
-SELECT IdDescricao, Descricao, FORMAT(DataCriacao, 'd', 'pt-bt') [Data de Criação] FROM Usuarios U
+SELECT IdDesejo,
+	   Descricao,
+	   FORMAT(DataCriacao, 'd', 'pt-bt') [Data de Criação]	   ,
+	   Email
+FROM Usuarios U
 INNER JOIN Desejos D
 ON U.IdUsuario = D.IdUsuario
 WHERE U.IdUsuario = 1;

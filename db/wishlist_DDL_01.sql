@@ -12,9 +12,11 @@ GO
 
 CREATE TABLE Desejos
 (
-	IdDescricao			INT PRIMARY KEY IDENTITY,
+	IdDesejo			INT PRIMARY KEY IDENTITY,
 	Descricao			VARCHAR(300) NOT NULL,
 	DataCriacao			DATE NOT NULL,
 	IdUsuario			INT FOREIGN KEY REFERENCES Usuarios (IdUsuario)
 );
 GO
+
+DROP TABLE Desejos;
