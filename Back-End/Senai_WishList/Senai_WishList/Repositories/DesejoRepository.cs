@@ -25,7 +25,7 @@ namespace Senai_WishList.Repositories
                 .Include(d => d.IdUsuarioNavigation)
                 .Select(d => new Desejo
                 {
-                    IdDescricao = d.IdDescricao
+                    IdDesejo = d.IdDesejo
                    ,
                     Descricao = d.Descricao
                    ,
@@ -75,7 +75,7 @@ namespace Senai_WishList.Repositories
                 .Include(d => d.IdUsuarioNavigation)
                 .Select(d => new Desejo
                 {
-                    IdDescricao = d.IdDescricao
+                    IdDesejo = d.IdDesejo
                    ,Descricao = d.Descricao
                    ,DataCriacao = d.DataCriacao
                    ,IdUsuario = d.IdUsuario

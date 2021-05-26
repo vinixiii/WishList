@@ -26,6 +26,18 @@ namespace Senai_WishList
                     // Ignora valores nulos ao fazer junções nas consultas
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    }
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +49,8 @@ namespace Senai_WishList
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {
