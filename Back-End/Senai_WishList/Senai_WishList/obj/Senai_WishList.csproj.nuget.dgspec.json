@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vinixiii\\Desktop\\wishlist\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {}
+    "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vinixiii\\Desktop\\wishlist\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {
+    "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vinixiii\\Desktop\\wishlist\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
         "projectName": "Senai_WishList",
-        "projectPath": "C:\\Users\\vinixiii\\Desktop\\wishlist\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
-        "packagesPath": "C:\\Users\\vinixiii\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vinixiii\\Desktop\\wishlist\\back-end\\Senai_WishList\\Senai_WishList\\obj\\",
+        "projectPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
+        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vinixiii\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.4, )"
             }
           },
           "imports": [
@@ -77,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
