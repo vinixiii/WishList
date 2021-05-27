@@ -7,7 +7,7 @@ namespace Senai_WishList.Domains
 {
     public partial class Desejo
     {
-        public int IdDescricao { get; set; }
+        public int IdDesejo { get; set; }
         public string Descricao { get; set; }
         public DateTime DataCriacao { get; set; }
         public int? IdUsuario { get; set; }
