@@ -120,3 +120,10 @@ C:\Users\vinixiii\Desktop\wishlist\back-end\Senai_WishList\Senai_WishList\obj\De
 C:\Users\vinixiii\Desktop\wishlist\back-end\Senai_WishList\Senai_WishList\obj\Debug\net5.0\ref\Senai_WishList.dll
 C:\Users\vinixiii\Desktop\wishlist\back-end\Senai_WishList\Senai_WishList\obj\Debug\net5.0\Senai_WishList.pdb
 C:\Users\vinixiii\Desktop\wishlist\back-end\Senai_WishList\Senai_WishList\obj\Debug\net5.0\Senai_WishList.genruntimeconfig.cache
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\obj\Debug\net5.0\Senai_WishList.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\bin\Debug\net5.0\Senai_WishList.xml
+C:\Users\pedro\OneDrive\Área de Trabalho\Banco de Dados\WishList\Back-End\Senai_WishList\Senai_WishList\obj\Debug\net5.0\Senai_WishList.xml
