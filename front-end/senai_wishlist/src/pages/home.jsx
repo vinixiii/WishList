@@ -12,12 +12,16 @@ export default class Home extends Component {
     super(props);
     this.state = {
       wishes: [],
-      isTrue: false,
+      isModalOpen: false,
       email: '',
       pwd: '',
       idUsuario: 0,
       wish: '',
-      isLogged: false
+      isLogged: false,
+      search: '',
+      teste: {},
+      hasLoginError: false,
+      isAsc: false
     };
   };
 
@@ -30,43 +34,56 @@ export default class Home extends Component {
 
   registerWish = async (e) => {
     e.preventDefault();
-    this.setState({isTrue: false});
 
     await fetch('http://localhost:5000/api/login', {
       method: 'POST',
 
-      body: {
+      body: JSON.stringify({
         email: this.state.email,
         senha: this.state.pwd
-      },
+      }),
 
       headers: {
         'Content-Type': 'application/json' 
       }
     })
-    .then(response => response.json())
-    .then(data => this.setState({idUsuario: data}))
-    .catch(error => console.log(error))
-    .then(() => this.setState({isLogged: true}));
+    // .then(response => response.json())
+    .then(response => {
+      if (response.status === 200) {
+        this.setState({teste: response.json()})
+        this.setState({isLogged: true})
+      }
+    })
+    .then(() => this.state.teste.then(data => this.setState({idUsuario: data})))
+    .then(() => console.log(this.state.idUsuario))
+    .catch(error => {
+      console.log(error)
+      this.setState({hasLoginError: true})
+    })
+    .then(() => console.log(this.state.isLogged));
 
-    if (this.state.isLogged) {
-      fetch('http://localhost:5000/api/desejos', {
-        method: 'POST',
+    // if (this.state.isLogged) {
+    //   fetch('http://localhost:5000/api/desejos', {
+    //     method: 'POST',
   
-        body: {
-          descricao: this.state.wish,
-          dataCriacao: Date.now(),
-          idUsuario: this.state.idUsuario
-        },
+    //     body: JSON.stringify({
+    //       descricao: this.state.wish,
+    //       dataCriacao: new Date().toJSON(),
+    //       idUsuario: this.state.idUsuario
+    //     }),
   
-        headers: {
-          'Content-Type': 'application/json' 
-        }
-      })
-      .then(console.log('Cadastrado'))
-      .catch(error => console.log(error))
-      .then(this.listWishes());
-    }
+    //     headers: {
+    //       'Content-Type': 'application/json' 
+    //     }
+    //   })
+    //   .then(response => {
+    //     if (response.status === 201) {
+    //       this.setState({isModalOpen: false});
+    //       this.listWishes();
+    //     }
+    //   })
+    //   .catch(error => console.log(error));
+    // };
   };
 
   componentDidMount() {
@@ -88,11 +105,17 @@ export default class Home extends Component {
                 <label>Buscar desejos</label>
                 <div id="input-content">
                   <img src={search} alt="Ícone de busca" />
-                  <input type="text" placeholder="E-mail" />
+                  <input 
+                    type="text"
+                    placeholder="E-mail"
+                    value={this.state.search}
+                    onChange={e => {this.setState({search: e.target.value}); console.log(this.state.search);}}
+                  />
                   <button type="submit"><img src={send} alt="" /></button>
                 </div>
               </form>
-              <button className="btn" onClick={() => {this.setState({isTrue: true})}}>+ Add desejo</button>
+              <button className="btn" onClick={() => {this.setState({isAsc: !this.state.isAsc}); this.listWishes()}}>Filtrar por data</button>
+              <button className="btn" onClick={() => this.setState({isModalOpen: true})}>+ Add desejo</button>
             </div>
 
             <table className="data-table">
@@ -106,12 +129,14 @@ export default class Home extends Component {
               </thead>
               <tbody>
                 {
-                  this.state.wishes.map(w => {
+                  this.state.isAsc && this.state.wishes.sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao)),
+
+                  this.state.wishes.filter(w => w.idUsuarioNavigation.email.toLowerCase().includes(this.state.search.toLowerCase())).map(w => {
                     return (
                       <tr key={w.idDesejo}>
                         <td>{w.idDesejo}</td>
                         <td>{w.descricao}</td>
-                        <td>{w.dataCriacao}</td>
+                        <td>{new Date(w.dataCriacao).toLocaleDateString()}</td>
                         <td>{w.idUsuarioNavigation.email}</td>
                       </tr>
                     )
@@ -122,18 +147,19 @@ export default class Home extends Component {
 
           </section>
 
-          <Modal isOpen={this.state.isTrue}>
+          <Modal isOpen={this.state.isModalOpen}>
             <div className="form">
               <h2>Novo desejo</h2>
 
-              <form>
+              <form onSubmit={(e) => this.registerWish(e)}>
                 <div className="input-group">
                   <label className="modal-label">E-mail</label>
                   <input 
                     className="modal-input"
                     type="text"
                     value={this.state.email}
-                    onChange={e => {this.setState({email: e.target.value}); console.log(this.state.email);}}
+                    onChange={e => {this.setState({email: e.target.value})}}
+                    required
                   />
                 </div>
 
@@ -141,9 +167,10 @@ export default class Home extends Component {
                   <label className="modal-label">Senha</label>
                   <input
                     className="modal-input"
-                    type="text"
+                    type="password"
                     value={this.state.pwd}
-                    onChange={e => {this.setState({pwd: e.target.value}); console.log(this.state.pwd);}}
+                    onChange={e => {this.setState({pwd: e.target.value})}}
+                    required
                   />
                 </div>
 
@@ -153,13 +180,18 @@ export default class Home extends Component {
                     className="modal-input"
                     type="text"
                     value={this.state.wish}
-                    onChange={e => {this.setState({wish: e.target.value}); console.log(this.state.wish);}}
+                    onChange={e => {this.setState({wish: e.target.value})}}
+                    // required
                   />
                 </div>
 
+                {
+                  this.state.hasLoginError && <span>Falha no login, tente novamente!</span>
+                }
+
                 <div className="buttons">
-                  <button className="btn cancel" onClick={() => this.setState({isTrue: false})} type="button">Cancelar</button>
-                  <button className="btn" onClick={(e) => this.registerWish(e)}>Confirmar</button>
+                  <button className="btn cancel" onClick={() => this.setState({isModalOpen: false, hasLoginError: false})} type="button">Cancelar</button>
+                  <button className="btn" type="submit" disabled={this.state.email === '' || this.state.email === '' || this.state.email === '' ? 'none' : ''}>Confirmar</button>
                 </div>
               </form>
             </div>
