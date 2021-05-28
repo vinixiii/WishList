@@ -26,7 +26,7 @@ namespace Senai_WishList
                 {
                     // Ignora os loopings nas consultas
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    // Ignora valores nulos ao fazer junções nas consultas
+                    // Ignora valores nulos ao fazer junï¿½ï¿½es nas consultas
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
@@ -64,7 +64,7 @@ namespace Senai_WishList
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpMedicalGroup.webApi");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WishList.webApi");
                 c.RoutePrefix = string.Empty;
             });
 
