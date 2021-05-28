@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PKGdTYASale7jYGA2qIUOFs189NDmv14q3xXdDsYck9+w/3z5wpR76WgQUkCu5n24Fg95KEu7aAWoEkee1TuMQ==",
+  "dgSpecHash": "FySD2i/wvvFGDdd/e6sGGha6CjsRtXA7gA/yuOvimuWZAFJyqJPIj73ZNO80PHlUHxrgoGdMSpuMmPsm64263w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\Back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
+  "projectFilePath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vinixiii\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vinixiii\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.6\\microsoft.aspnetcore.jsonpatch.5.0.6.nupkg.sha512",
