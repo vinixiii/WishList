@@ -1,8 +1,9 @@
 import { Component } from 'react';
+import swal from '@sweetalert/with-react'
 
 import logo from '../img/logo-wishlist.svg';
 import search from '../img/search.svg';
-import send from '../img/send.svg';
+import trash from '../img/delete.svg';
 import Modal from '../components/modal'
 
 import '../styles/home.css';
@@ -47,7 +48,6 @@ export default class Home extends Component {
         'Content-Type': 'application/json' 
       }
     })
-    // .then(response => response.json())
     .then(response => {
       if (response.status === 200) {
         this.setState({teste: response.json()})
@@ -55,11 +55,11 @@ export default class Home extends Component {
       }
     })
     .then(() => this.state.teste.then(data => this.setState({idUsuario: data})))
-    .then(() => console.log(this.state.idUsuario))
     .catch(error => {
       console.log(error)
       this.setState({hasLoginError: true})
     })
+    .then(() => console.log(this.state.idUsuario))
     .then(() => console.log(this.state.isLogged));
 
     // if (this.state.isLogged) {
@@ -86,6 +86,24 @@ export default class Home extends Component {
     // };
   };
 
+  deleteWish = (idDesejo) => {
+    fetch('http://localhost:5000/api/desejos/' + idDesejo, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (response.status === 204) {
+        swal({
+          icon: 'success',
+          text: 'Desejo deletado com sucesso!',
+          button: false,
+          timer: 2000
+        });
+        this.listWishes();
+      };
+    })
+    .catch(error => console.log(error));
+  }
+
   componentDidMount() {
     this.listWishes();
   }
@@ -111,11 +129,14 @@ export default class Home extends Component {
                     value={this.state.search}
                     onChange={e => {this.setState({search: e.target.value}); console.log(this.state.search);}}
                   />
-                  <button type="submit"><img src={send} alt="" /></button>
+                  {/* <button type="submit"><img src={send} alt="" /></button> */}
                 </div>
               </form>
-              <button className="btn" onClick={() => {this.setState({isAsc: !this.state.isAsc}); this.listWishes()}}>Filtrar por data</button>
-              <button className="btn" onClick={() => this.setState({isModalOpen: true})}>+ Add desejo</button>
+
+              <div className="flex-end">
+                <button className="btn filter" onClick={() => {this.setState({isAsc: !this.state.isAsc}); this.listWishes()}}>Filtrar por data</button>
+                <button className="btn" onClick={() => this.setState({isModalOpen: true})}>+ Add desejo</button>
+              </div>
             </div>
 
             <table className="data-table">
@@ -125,6 +146,7 @@ export default class Home extends Component {
                   <th>Desejo</th>
                   <th>Data</th>
                   <th>Email</th>
+                  {/* <th>Ação</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -138,6 +160,7 @@ export default class Home extends Component {
                         <td>{w.descricao}</td>
                         <td>{new Date(w.dataCriacao).toLocaleDateString()}</td>
                         <td>{w.idUsuarioNavigation.email}</td>
+                        <td><button onClick={() => this.deleteWish(w.idDesejo)}><img src={trash} alt="" /></button></td>
                       </tr>
                     )
                   })
@@ -190,7 +213,7 @@ export default class Home extends Component {
                 }
 
                 <div className="buttons">
-                  <button className="btn cancel" onClick={() => this.setState({isModalOpen: false, hasLoginError: false})} type="button">Cancelar</button>
+                  <button className="btn cancel" onClick={() => this.setState({isModalOpen: false, hasLoginError: false, email: '', pwd: '', wish: ''})} type="button">Cancelar</button>
                   <button className="btn" type="submit" disabled={this.state.email === '' || this.state.email === '' || this.state.email === '' ? 'none' : ''}>Confirmar</button>
                 </div>
               </form>
