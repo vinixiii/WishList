@@ -62,28 +62,28 @@ export default class Home extends Component {
     .then(() => console.log(this.state.idUsuario))
     .then(() => console.log(this.state.isLogged));
 
-    // if (this.state.isLogged) {
-    //   fetch('http://localhost:5000/api/desejos', {
-    //     method: 'POST',
+    if (this.state.isLogged) {
+      fetch('http://localhost:5000/api/desejos', {
+        method: 'POST',
   
-    //     body: JSON.stringify({
-    //       descricao: this.state.wish,
-    //       dataCriacao: new Date().toJSON(),
-    //       idUsuario: this.state.idUsuario
-    //     }),
+        body: JSON.stringify({
+          descricao: this.state.wish,
+          dataCriacao: new Date().toJSON(),
+          idUsuario: this.state.idUsuario
+        }),
   
-    //     headers: {
-    //       'Content-Type': 'application/json' 
-    //     }
-    //   })
-    //   .then(response => {
-    //     if (response.status === 201) {
-    //       this.setState({isModalOpen: false});
-    //       this.listWishes();
-    //     }
-    //   })
-    //   .catch(error => console.log(error));
-    // };
+        headers: {
+          'Content-Type': 'application/json' 
+        }
+      })
+      .then(response => {
+        if (response.status === 201) {
+          this.setState({isModalOpen: false});
+          this.listWishes();
+        }
+      })
+      .catch(error => console.log(error));
+    };
   };
 
   deleteWish = (idDesejo) => {

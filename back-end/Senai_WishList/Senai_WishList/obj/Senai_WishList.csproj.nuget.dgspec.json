@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {}
+    "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {
+    "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
+        "projectUniqueName": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
         "projectName": "Senai_WishList",
-        "projectPath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
+        "projectPath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-end\\Senai_WishList\\Senai_WishList\\Senai_WishList.csproj",
         "packagesPath": "C:\\Users\\vinixiii\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-End\\Senai_WishList\\Senai_WishList\\obj\\",
+        "outputPath": "C:\\Users\\vinixiii\\Desktop\\teste\\WishList\\back-end\\Senai_WishList\\Senai_WishList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vinixiii\\AppData\\Roaming\\NuGet\\NuGet.Config",
